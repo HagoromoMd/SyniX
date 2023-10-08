@@ -10,6 +10,92 @@ if game.PlaceId == 13370783664 then
     _G.spins = false
     _G.moedas = false 
     _G.box    = false 
+    _G.extrasvitorias = false
+    _G.extravelocidade = false 
+    _G.extrapoder = false
+    _G.extrasorte = false
+    _G.extrasmochila = false
+    _G.extraheroi = false 
+    _G.extrasgemas = false
+
+
+
+      function extrasgemas()
+           while _G.extrasgemas do 
+             local args = {
+    [1] = "Gem"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryBuyShopProject"):FireServer(unpack(args))
+            wait(0.01)
+             end
+          end
+ 
+       function extraheroi()
+          while _G.extraheroi do 
+            local args = {
+    [1] = "EquipTotal"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryBuyShopProject"):FireServer(unpack(args))
+           wait(0.01)
+            end
+        end
+
+      function  extrasmochila()
+         while _G.extrasmochila do 
+            local args = {
+    [1] = "BackPackTotal"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryBuyShopProject"):FireServer(unpack(args))
+              wait(0.01)
+               end
+             end
+     
+      function extrasorte()
+        while _G.extrasorte do 
+          local args = {
+    [1] = "Luck"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryBuyShopProject"):FireServer(unpack(args))
+              wait(0.01)
+              end
+           end
+
+    function extrapoder()
+        while _G.extrapoder do
+           local args = {
+    [1] = "Power"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryBuyShopProject"):FireServer(unpack(args))
+                wait(0.01)
+                end
+            end
+
+      function extravelocidade()
+         while _G.extravelocidade do 
+             local args = {
+    [1] = "MovementSpeed"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryBuyShopProject"):FireServer(unpack(args))
+             wait (0.01)
+            end
+        end
+
+      function extrasvitorias()
+          while _G.extrasvitorias do
+             local args = {
+    [1] = "Wins"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryBuyShopProject"):FireServer(unpack(args))
+              wait(0.01)
+            end
+        end
 
     function box()
         while _G.box do 
@@ -21,11 +107,11 @@ if game.PlaceId == 13370783664 then
     function moedas()
         while _G.moedas do 
             local args = {
-                [2] = game:GetService("Players").LocalPlayer
+                [3] = game:GetService("Players").LocalPlayer
             }
 
             game:GetService("ReplicatedStorage").Remote.Event.RebirthShop:FindFirstChild("[C-S]TryExchangeStar"):FireServer(unpack(args))
-            wait(3)
+            wait(5)
         end
     end
 
@@ -68,13 +154,13 @@ if game.PlaceId == 13370783664 then
         end
     end
 
-    local FARMTab = Window:MakeTab({
-    Name = "FARM",
-    Icon = "rbxassetid://4483345998",
+    local PLAYERTab = Window:MakeTab({
+    Name = "PLAYER",
+    Icon = "rbxassetid://14961970030",
     PremiumOnly = false
 })
 
-local Section1 = FARMTab:AddSection({
+local Section1 = PLAYERTab:AddSection({
     Name = "CLICK"
 })
 
@@ -87,7 +173,7 @@ local AUTOWINToggle = Section1:AddToggle({
     end
 })
 
-local Section2 = FARMTab:AddSection({
+local Section2 = PLAYERTab:AddSection({
     Name = "WIN"
 })
 
@@ -99,11 +185,11 @@ local AUTOWINToggle2 = Section2:AddToggle({
         AUTOWIN()
     end
 })
-local Section2 = FARMTab:AddSection({
+local Section2 = PLAYERTab:AddSection({
     Name = "Spins"
 })
 
-local AUTOWINToggle3 = FARMTab:AddToggle({
+local AUTOWINToggle3 = PLAYERTab:AddToggle({
     Name = "Spins",
     Default = false,
     Callback = function(Value)
@@ -111,11 +197,11 @@ local AUTOWINToggle3 = FARMTab:AddToggle({
         spins()
     end
 })
-local Section2 = FARMTab:AddSection({
+local Section2 = PLAYERTab:AddSection({
     Name = "BOX"
 })
 
-local AUTOWINToggle4 = FARMTab:AddToggle({
+local AUTOWINToggle4 = PLAYERTab:AddToggle({
     Name = "BOX",
     Default = false,
     Callback = function(Value)
@@ -125,9 +211,74 @@ local AUTOWINToggle4 = FARMTab:AddToggle({
 })
 
 
+local STATSTab = Window:MakeTab({
+    Name = "STATS",
+    Icon = "rbxassetid://14978617722",
+    PremiumOnly = false
+})
+
+local Section = STATSTab:AddSection({
+	Name = "STATS"
+})
+STATSTab:AddToggle({
+	Name = "EXTRA VICTORY",
+	Default = false,
+	Callback = function(Value)
+		_G.extrasvitorias = Value
+          extrasvitorias()
+	end    
+})
+STATSTab:AddToggle({
+	Name = "EXTRA SPEED",
+	Default = false,
+	Callback = function(Value)
+		_G.extravelocidade = Value
+          extravelocidade()
+	end    
+})
+STATSTab:AddToggle({
+	Name = "EXTRA POWER",
+	Default = false,
+	Callback = function(Value)
+		_G.extrapoder = Value
+          extrapoder()
+	end    
+})
+STATSTab:AddToggle({
+	Name = "EXTRA LUCK",
+	Default = false,
+	Callback = function(Value)
+		_G.extrasorte = Value
+          extrasorte()
+	end    
+})
+STATSTab:AddToggle({
+	Name = "EXTRA STORAGE",
+	Default = false,
+	Callback = function(Value)
+		_G.extrasmochila = Value
+          extrasmochila()
+	end    
+})
+  STATSTab:AddToggle({
+	Name = "EXTRA HERO",
+	Default = false,
+	Callback = function(Value)
+		_G.extraheroi = Value
+          extraheroi()
+	end    
+})
+  STATSTab:AddToggle({
+	Name = "EXTRA GEMS",
+	Default = false,
+	Callback = function(Value)
+		_G.extrasgemas = Value
+          extrasgemas()
+	end    
+})
     local REBIRTHTab = Window:MakeTab({
     Name = "REBIRTH",
-    Icon = "rbxassetid://4483345998",
+    Icon = "rbxassetid://14961989839",
     PremiumOnly = false
 })
 
@@ -156,7 +307,7 @@ local AUTOWINToggle6 = Section3:AddToggle({
 
     local TELEPORTETab = Window:MakeTab({
     Name = "TELEPORT",
-    Icon = "rbxassetid://4483345998",
+    Icon = "rbxassetid://14878706595",
     PremiumOnly = false
 })
 
@@ -189,6 +340,13 @@ TELEPORTETab:AddButton({
     Name = "Market",
     Callback = function()
         game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-975.64013671875, 3.4519155025482178, 5.904914379119873))
+    end    
+})
+
+TELEPORTETab:AddButton({
+    Name = "INDEX",
+    Callback = function()
+        game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-1071.794677734375, 3.390293836593628, -124.89149475097656))
     end    
 })
 
@@ -343,483 +501,234 @@ TELEPORTETab:AddButton({
 })
 
 
-    local EGGSTab = Window:MakeTab({
-        Name = "EGGS",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
+local EGGSTab = Window:MakeTab({
+    Name = "EGGS",
+    Icon = "rbxassetid://14978554834",
+    PremiumOnly = false
+})
 
-     local Section5 = EGGSTab:AddSection({
-        Name = "EGG Evento"
-    })
+local Section5 = EGGSTab:AddSection({
+    Name = "EGGS"
+})
 
-local eggNumber = 1  -- Defina um valor padrão para eggNumber
-local openingEgg = false  -- Inicialize openingEgg como falso
+local eggNumber = "EVENTOEGG"
+local openingEgg = false
 
 local EggScripts = {
-    Egg1 = function()
-  local args = {
-    [1] = "E700"
-}
-
-game:GetService("ReplicatedStorage").Remote.Event.Events:FindFirstChild("[C-S]TryGetEventReward"):FireServer(unpack(args))
-
+    EVENTOEGG = function()
+        local args = {
+            [1] = "E700"
+        }
+        game:GetService("ReplicatedStorage").Remote.Event.Events:FindFirstChild("[C-S]TryGetEventReward"):FireServer(unpack(args))
     end,
-    Egg2 = function()
-    local args = {
-    [1] = "Egg83"
-}
-
-game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-end,
-   Egg3 = function()
-    local args = {
-    [1] = "Egg85"
-}
-
-game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-end,
-    EGGEVENTO = function()
-local args = {
-    [1] = "E700"
-}
-
-game:GetService("ReplicatedStorage").Remote.Event.Events:FindFirstChild("[C-S]TryGetEventReward"):FireServer(unpack(args))
-end,
-     Egg5 = function()
-    local args = {
-    [1] = "Egg89"
-}
-
-game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-end,
-    Egg6 = function()
-  local args = {
-    [1] = "Egg88"
-}
-
-game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-}
-
-local eggNumber = 1  -- Defina um valor padrão para eggNumber
-local openingEgg = false  -- Inicialize openingEgg como falso
-
-local Dropdown = EGGSTab:AddDropdown({
-    Name = "Select Eggs",
-    Default = "EGGEVENTO",
-    Options = { "EGGEVENTO"},
-    Callback = function(Value)
-        eggNumber = tonumber(string.match(Value, "Egg(%d+)")) or 1  -- Extrai o número do nome do ovo selecionado
-    end    
-})
-
-local EggToggle = EGGSTab:AddToggle({
-    Name = "Open EGG",
-    Default = false,
-    Callback = function(Value)
-        if Value then
-            openingEgg = true
-            while openingEgg do
-                local eggScript = EggScripts["Egg" .. eggNumber]
-
-                if eggScript then
-                    eggScript()
-                end
-
-                wait(0.001)
-            end
-        else
-            openingEgg = false
-        end
-    end
-})
-  local Section5 = EGGSTab:AddSection({
-    Name = "World1"
-})
-
-local eggNumber = 1  -- Set the initial number
-local openingEgg = false  -- Variable to control whether an egg is being opened
-
-local EggScripts = {
-    Egg1 = function()
+    EGG1 = function()
         local args = {
             [1] = "Egg1"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    Egg2 = function()
+    EGG2 = function()
         local args = {
             [1] = "Egg2"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    Egg3 = function()
+    EGG3 = function()
         local args = {
             [1] = "Egg3"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    Egg4 = function()
+    EGG4 = function()
         local args = {
             [1] = "Egg4"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    Egg5 = function()
-        -- Place different script for Egg5 here
+    EGG5 = function()
         local args = {
             [1] = "Gem1"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-}
-
-local eggNumber = 1  -- Set a default value for eggNumber
-local openingEgg = false  -- Initialize openingEgg as false
-
-local Dropdown = EGGSTab:AddDropdown({
-    Name = "Select Eggs",
-    Default = "Egg1",
-    Options = {"Egg1", "Egg2", "Egg3", "Egg4", "Egg5"},
-    Callback = function(Value)
-        eggNumber = tonumber(string.match(Value, "Egg(%d+)")) or 1  -- Extract the number from the selected egg's name
-    end    
-})
-
-local EggToggle = EGGSTab:AddToggle({
-    Name = "Open Eggs",
-    Default = false,
-    Callback = function(Value)
-        if Value then
-            openingEgg = true
-            while openingEgg do
-                local eggScript = EggScripts["Egg" .. eggNumber]
-
-                if eggScript then
-                    eggScript()
-                end
-
-                wait(0.001)
-            end
-        else
-            openingEgg = false
-        end
-    end
-})
-
-
-
-local SECTION5 = EGGSTab:AddSection({
-    Name = "WORLD2"
-})
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local EggScripts = {
-    EGG1 = function()
+    EGG6 = function()
         local args = {
             [1] = "Egg6"
         }
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG2 = function()
+    EGG7 = function()
+        local args = {
+            [1] = "Egg7"
+        }
+        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end,
+    EGG8 = function()
+        local args = {
+            [1] = "Egg8"
+        }
+        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end,
+    EGG9 = function()
         local args = {
             [1] = "Egg9"
         }
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG3 = function()
+    EGG10 = function()
         local args = {
             [1] = "Egg10"
         }
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-}
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local Dropdown = EGGSTab:AddDropdown({
-    Name = "Select Eggs",
-    Default = "EGG1",
-    Options = {"EGG1", "EGG2", "EGG3"},
-    Callback = function(Value)
-        EGGNUMBER = tonumber(string.match(Value, "Egg(%d+)")) or 1  -- Extract the number from the selected egg's name
-    end    
-})
-
-local EggToggle = EGGSTab:AddToggle({
-    Name = "Open EGG",
-    Default = false,
-    Callback = function(Value)
-        if Value then
-            OPENINGEGG = true
-            while OPENINGEGG do
-                local eggScript = EggScripts["EGG" .. EGGNUMBER]
-
-                if eggScript then
-                    eggScript()
-                end
-
-                wait(0.001)
-            end
-        else
-            OPENINGEGG = false
-        end
-    end
-})
-
-
-  local SECTION5 = EGGSTab:AddSection({
-    Name = "WORLD3"
-})
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local EggScripts = {
-    EGG1 = function()
+    EGG11 = function()
         local args = {
             [1] = "Egg11"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG2 = function()
+    EGG12 = function()
         local args = {
             [1] = "Egg12"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG4 = function()
-        local args = {
-            [1] = "Egg14"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-    EGG5 = function()
-        local args = {
-            [1] = "Egg15"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-    EGG6 = function()
-        local args = {
-            [1] = "Egg16"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-    EGG3 = function()
+    EGG13 = function()
         local args = {
             [1] = "Egg13"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-}
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local Dropdown = EGGSTab:AddDropdown({
-    Name = "Select Eggs",
-    Default = "EGG1",
-    Options = {"EGG1", "EGG2", "EGG3", "EGG4", "EGG5", "EGG6"},
-    Callback = function(Value)
-        EGGNUMBER = tonumber(string.match(Value, "Egg(%d+)")) or 1  -- Extract the number from the selected egg's name
-    end    
-})
-
-local EggToggle = EGGSTab:AddToggle({
-    Name = "Open EGG",
-    Default = false,
-    Callback = function(Value)
-        if Value then
-            OPENINGEGG = true
-            while OPENINGEGG do
-                local eggScript = EggScripts["EGG" .. EGGNUMBER]
-
-                if eggScript then
-                    eggScript()
-                end
-
-                wait(0.001)
-            end
-        else
-            OPENINGEGG = false
-        end
-    end
-})
-
-
-local Section5 = EGGSTab:AddSection({
-    Name = "WORLD4"
-})
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local EggScripts = {
-    EGG1 = function()
+    EGG14 = function()
+        local args = {
+            [1] = "Egg14"
+        }
+        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end,
+    EGG15 = function()
+        local args = {
+            [1] = "Egg15"
+        }
+        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end,
+    EGG16 = function()
+        local args = {
+            [1] = "Egg16"
+        }
+        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end,
+    EGG17 = function()
         local args = {
             [1] = "Egg17"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG2 = function()
+    EGG18 = function()
         local args = {
             [1] = "Egg18"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG3 = function()
+    EGG19 = function()
         local args = {
             [1] = "Egg19"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG4 = function()
+    EGG20 = function()
         local args = {
             [1] = "Egg20"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG5 = function()
+    EGG21 = function()
         local args = {
             [1] = "Egg21"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG6 = function()
+    EGG22 = function()
         local args = {
             [1] = "Egg22"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-}
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local Dropdown = EGGSTab:AddDropdown({
-    Name = "Select Eggs",
-    Default = "EGG1",
-    Options = {"EGG1", "EGG2", "EGG3", "EGG4", "EGG5", "EGG6"},
-    Callback = function(Value)
-        EGGNUMBER = tonumber(string.match(Value, "Egg(%d+)")) or 1  -- Extract the number from the selected egg's name
-    end    
-})
-
-local EggToggle = EGGSTab:AddToggle({
-    Name = "Open Eggs",
-    Default = false,
-    Callback = function(Value)
-        if Value then
-            OPENINGEGG = true
-            while OPENINGEGG do
-                local eggScript = EggScripts["EGG" .. EGGNUMBER]
-
-                if eggScript then
-                    eggScript()
-                end
-
-                wait(0.001)
-            end
-        else
-            OPENINGEGG = false
-        end
-    end
-})
-
-local Section5 = EGGSTab:AddSection({
-    Name = "WORLD5"
-})
-
-local eggNumber = 1  -- Set a default value for EGGNUMBER
-local openingEgg = false  -- Initialize OPENINGEGG as false
-
-local EggScripts = {
-    EGG1 = function()
+    EGG23 = function()
         local args = {
             [1] = "Egg23"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG2 = function()
+    EGG24 = function()
         local args = {
             [1] = "Egg24"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG3 = function()
+    EGG25 = function()
         local args = {
             [1] = "Egg25"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG4 = function()
+    EGG26 = function()
         local args = {
             [1] = "Egg26"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG5 = function()
+    EGG27 = function()
         local args = {
             [1] = "Egg27"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
-    EGG6 = function()
+    EGG28 = function()
         local args = {
-            [1] = "Egg"
+            [1] = "Egg28"
         }
-
         game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
     end,
+    EGG29 = function()
+        local args = {
+            [1] = "Egg29"
+        }
+        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end,
+    EGG30 = function()
+        local args = {
+            [1] = "Egg30"
+        }
+        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end
 }
 
-local eggNumber = 1  -- Set a default value for EGGNUMBER
-local openingEgg = false  -- Initialize OPENINGEGG as false
+local eggOptions = {}  -- Armazenar opções de ovos para o dropdown
 
-local Dropdown = EGGSTab:AddDropdown({
-    Name = "Select Eggs",
-    Default = "EGG1",
-    Options = {"EGG1", "EGG2", "EGG3", "EGG4", "EGG5"},
+for eggName, _ in pairs(EggScripts) do
+    table.insert(eggOptions, eggName)  -- Adicionar o nome do ovo às opções do dropdown
+end
+
+EGGSTab:AddDropdown({
+    Name = "Select Egg",
+    Default = "EVENTOEGG",
+    Options = {"EVENTOEGG", "EGG1", "EGG2", "EGG3", "EGG4", "EGG5", "EGG6", "EGG7", "EGG8", "EGG9", "EGG10", "EGG11",
+    "EGG12", "EGG13", "EGG14", "EGG15", "EGG16", "EGG17", "EGG18", "EGG19", "EGG20", "EGG21", "EGG22", "EGG23", "EGG24", 
+       "EGG25", "EGG26", "EGG27", "EGG28", "EGG29", "EGG30"}, 
+     
     Callback = function(Value)
-        eggNumber = tonumber(string.match(Value, "EGG(%d+)")) or 1  -- Extract the number from the selected egg's name
-    end    
+        eggNumber = Value
+    end
 })
 
-local EggToggle = EGGSTab:AddToggle({
+EGGSTab:AddToggle({
     Name = "Open Eggs",
     Default = false,
     Callback = function(Value)
         if Value then
             openingEgg = true
             while openingEgg do
-                local eggScript = EggScripts["EGG" .. eggNumber]
+                local eggScript = EggScripts[eggNumber]
 
                 if eggScript then
                     eggScript()
@@ -832,92 +741,6 @@ local EggToggle = EGGSTab:AddToggle({
         end
     end
 })
-
-local Section5 = EGGSTab:AddSection({
-    Name = "WORLD6"
-})
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local EggScripts = {
-    EGG1 = function()
-        local args = {
-            [1] = "Egg28"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-    EGG2 = function()
-        local args = {
-            [1] = "Egg29"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-    EGG3 = function()
-        local args = {
-            [1] = "Egg30"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-    EGG4 = function()
-        local args = {
-            [1] = "97"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Event.Events:FindFirstChild("[C-S]TryGetEventReward"):FireServer(unpack(args))
-    end,
-    EGG5 = function()
-        local args = {
-            [1] = "Egg98"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-    EGG6 = function()
-        local args = {
-            [1] = "Egg99"
-        }
-
-        game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
-    end,
-}
-
-local EGGNUMBER = 1  -- Set a default value for EGGNUMBER
-local OPENINGEGG = false  -- Initialize OPENINGEGG as false
-
-local Dropdown = EGGSTab:AddDropdown({
-    Name = "Select Eggs",
-    Default = "EGG1",
-    Options = {"EGG1", "EGG2", "EGG3", "EGG4"},
-    Callback = function(Value)
-        EGGNUMBER = tonumber(string.match(Value, "Egg(%d+)")) or 1  -- Extract the number from the selected egg's name
-    end    
-})
-
-local EggToggle = EGGSTab:AddToggle({
-    Name = "Open EGG",
-    Default = false,
-    Callback = function(Value)
-        if Value then
-            OPENINGEGG = true
-            while OPENINGEGG do
-                local eggScript = EggScripts["EGG" .. EGGNUMBER]
-
-                if eggScript then
-                    eggScript()
-                end
-
-                wait(0.001)
-            end
-        else
-            OPENINGEGG = false
-        end
-    end
-})
-
 local Section = EGGSTab:AddSection({
     Name = "Craft All"
 })
@@ -926,55 +749,58 @@ EGGSTab:AddToggle({
     Name = "Craft All",
     Default = false,
     Callback = function(Value)
-        _G.CRAFT = Value
+        _G.craft = Value
         craft()
     end    
 })
 
-    local aboutTab = Window:MakeTab({
-    Name = "about",
+    local ABOUTTab = Window:MakeTab({
+    Name = "ABOUT",
     Icon = "rbxassetid://14878733485",
     PremiumOnly = false
 })
 
-       local Section = aboutTab:AddSection({
+       local Section = ABOUTTab:AddSection({
 	Name = "ㅤ   ㅤㅤ   ㅤㅤ   ㅤㅤ   ㅤㅤ   ㅤㅤSYNIX (BETA)"  
 })
-       local Section = aboutTab:AddSection({
+       local Section = ABOUTTab:AddSection({
 	Name = "                       Developers: RayzMods | Hagoromo"
 })
 
-     local Section = aboutTab:AddSection({
-	Name = "Hello, thank you for using 'SyniX - Energy-shock-simulator x' in your beta."
+     local Section = ABOUTTab:AddSection({
+	Name = "Hello, thank you for using 'SyniX - Energy-shock-simulator' in your beta."
 })
 
-local Section = aboutTab:AddSection({
+local Section = ABOUTTab:AddSection({
 	Name = ""
 })
 
-aboutTab:AddButton({
+ABOUTTab:AddButton({
 	Name = "ㅤ   ㅤㅤ   ㅤㅤ   ㅤㅤ      ㅤㅤSocial networks ",
 	Callback = function()
       setclipboard("https://stanti.com.br/synix")
   OrionLib:MakeNotification({	Name = "SyniX HUB",
 	Content = "Copied site link",
-	Image = "rbxassetid://4483345998",
+	Image = "rbxassetid://14962257286",
 	Time = 5
 })
         
         end    
 })
   
-aboutTab:AddButton({
+ABOUTTab:AddButton({
+
+
 	Name = "ㅤ   ㅤㅤ   ㅤㅤ   ㅤㅤ      ㅤ       ㅤDiscord ",
 	Callback = function()
      setclipboard("https://discord.gg/svnCNEj8hW")
       OrionLib:MakeNotification({	Name = "SyniX HUB",
 	Content = "Copied Discord link",
-	Image = "rbxassetid://4483345998",
+	Image = "rbxassetid://14962192917",
 	Time = 5
 })
        
        end    
 })
+ OrionLib:Init()
 end
