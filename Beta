@@ -520,6 +520,45 @@ local EggScripts = {
     [1] = "E700"
 }
 
+game:GetService("ReplicatedStorage").Remote.Event.Events:FindFirstChild("[C-S]TryGetEventReward"):FireServer(unpack(args))
+
+    end,
+    Egg2 = function()
+    local args = {
+    [1] = "Egg000"
+}
+
+game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+end,
+   Egg3 = function()
+    local args = {
+    [1] = "Egg009"
+}
+
+game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+end,
+    EGGEVENTO = function()
+local args = {
+    [1] = "E700"
+}
+
+game:GetService("ReplicatedStorage").Remote.Event.Events:FindFirstChild("[C-S]TryGetEventReward"):FireServer(unpack(args))
+end,
+     Egg5 = function()
+    local args = {
+    [1] = "Egg001"
+}
+
+game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+end,
+    Egg6 = function()
+  local args = {
+    [1] = "Egg002"
+}
+
+game:GetService("ReplicatedStorage").Remote.Function.Luck:FindFirstChild("[C-S]DoLuck"):InvokeServer(unpack(args))
+    end,
+}
 
 local eggNumber = 1  -- Defina um valor padrão para eggNumber
 local openingEgg = false  -- Inicialize openingEgg como falso
